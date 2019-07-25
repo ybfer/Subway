@@ -8,6 +8,7 @@ import java.util.Set;
 
 import Subway.data.Line;
 import Subway.data.Station;
+import Subway.exception.NoSuchStationException;
 
 public class Floyd {
 	private static final int INF = Integer.MAX_VALUE;
@@ -22,6 +23,12 @@ public class Floyd {
 		//生成路线
 		Integer startIndex = edge.get(start);
 		Integer endIndex = edge.get(end);
+		if(startIndex == null){
+			throw new NoSuchStationException(start);
+		}else if(endIndex == null){
+			throw new NoSuchStationException(end);
+		}
+
 		
 		int[] resultIndex = generateRoute(path, startIndex, endIndex);
 		ArrayList<String> stationNameList = new ArrayList<String>();

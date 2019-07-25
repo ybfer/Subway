@@ -5,6 +5,7 @@ import java.util.List;
 
 import Subway.data.Line;
 import Subway.data.Station;
+import Subway.exception.NoSuchLineException;
 
 public class QueryCommand extends Command{
 	public static final String name = "query";
@@ -39,8 +40,9 @@ public class QueryCommand extends Command{
 //
 //			writer.writeResultList(result);
 			return result;
+		}else{
+			throw new NoSuchLineException(this.lineName);
 		}
 
-		return null;
 	}
 }

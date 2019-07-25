@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import Subway.exception.FileFormatException;
+import Subway.exception.FilePathException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -22,6 +24,7 @@ public class DataReader {
 			jsonStr = readFile();
 		} catch (IOException e) {
 			jsonStr = "";
+			throw new FilePathException(dataPath);
 		}
 		
 		List<Line> lineList;
@@ -29,6 +32,7 @@ public class DataReader {
 			lineList = json2LineList(jsonStr);
 		}catch (Exception e) {
 			lineList = new ArrayList<Line>();
+			throw new FileFormatException();
 		}
 		
 		return lineList;

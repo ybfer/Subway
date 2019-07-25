@@ -29,7 +29,6 @@ public class PlaneCommand extends Command{
 		List<String> route = floyd.planeShortestPath(lineList, startStationName, 
 				endStationName);
 
-//		DataWriter writer = new DataWriter(outputPath);
 		List<String> result = new ArrayList<String>();
 		
 		List<String> previous = null, after;
@@ -69,7 +68,6 @@ public class PlaneCommand extends Command{
 				isExchangeStation = false;
 			}
 		}
-//		writer.writeResultList(result);
 		return result;
 	}
 	

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 
+import Subway.exception.ParameterException;
 import org.apache.commons.lang.ArrayUtils;
 
 import Subway.command.Command;
@@ -52,6 +53,8 @@ public class InputVariables{
 			commands.put("input", "subway.txt");
 			commands.put("output", "station.txt");
 			commands.put("query", "1∫≈œﬂ");
+
+			throw new ParameterException();
 		}
 		
 	}
