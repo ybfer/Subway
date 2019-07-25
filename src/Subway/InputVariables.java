@@ -69,15 +69,19 @@ public class InputVariables{
 	
 	public Command getCommand(){
 		String lineName = commands.get("query");
-		
+		String plane = commands.get("plane");
+
 		Command command;
 		if(lineName != null){
 			command = new QueryCommand(lineName);
-		}else{
+		}else if(plane != null){
 			String stations = commands.get("plane");
 			command = new PlaneCommand(stations.split("_")[0],
 					stations.split("_")[1]);
+		}else{
+			return null;
 		}
+
 		return command;
 	}
 
